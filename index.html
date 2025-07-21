@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>สุ่มตัวเลข</title>
+  <title>NJS Cafe De Duang</title>
   <style>
     body {
       display: flex;
@@ -12,24 +12,44 @@
       justify-content: center;
       height: 100vh;
       margin: 0;
-      background: #fff;
-      font-family: sans-serif;
+      background: #ffffff;
+      font-family: 'Prompt', sans-serif;
+      text-align: center;
+      padding: 2rem;
     }
+
+    .title {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #4b0082;
+      margin-bottom: 2rem;
+    }
+
     .number {
       font-size: 10rem;
       color: #007acc;
     }
+
     .bonus {
+      font-size: 1.8rem;
+      color: #d35400;
       margin-top: 1rem;
-      font-size: 2rem;
-      color: #007acc;
-      text-align: center;
+    }
+
+    .quote {
+      margin-top: 2rem;
+      font-size: 1.5rem;
+      color: #444;
+      max-width: 600px;
     }
   </style>
 </head>
 <body>
+  <div class="title">Cafe De Duang</div>
   <div class="number" id="num">–</div>
   <div class="bonus" id="bonus"></div>
+  <div class="quote">แม้ไพ่จะถูกเปิดแบบสุ่ม แต่ทุกคำทำนายเราใส่ใจจริง</div>
+
   <script>
     const pool = [];
     [1,2,3,4,6,7,8,9].forEach(n => { for(let i=0;i<11;i++) pool.push(n); });
@@ -37,6 +57,7 @@
     pool.sort(() => Math.random()-0.5);
     const num = pool[Math.floor(Math.random()*pool.length)];
     document.getElementById('num').textContent = num;
+
     if (num === 5) {
       document.getElementById('bonus').textContent = 'วันนี้คุณดวงดี รับชา/กาแฟฟรี 1 แก้ว!!!';
     }
