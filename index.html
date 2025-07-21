@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>สุ่มตัวเลข</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: #fff;
+      font-family: sans-serif;
+    }
+    .number {
+      font-size: 10rem;
+      color: #007acc;
+    }
+    .bonus {
+      margin-top: 1rem;
+      font-size: 2rem;
+      color: #007acc;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="number" id="num">–</div>
+  <div class="bonus" id="bonus"></div>
+  <script>
+    const pool = [];
+    [1,2,3,4,6,7,8,9].forEach(n => { for(let i=0;i<11;i++) pool.push(n); });
+    for(let i=0;i<12;i++) pool.push(5);
+    pool.sort(() => Math.random()-0.5);
+    const num = pool[Math.floor(Math.random()*pool.length)];
+    document.getElementById('num').textContent = num;
+    if (num === 5) {
+      document.getElementById('bonus').textContent = 'วันนี้คุณดวงดี รับชา/กาแฟฟรี 1 แก้ว!!!';
+    }
+  </script>
+</body>
+</html>
